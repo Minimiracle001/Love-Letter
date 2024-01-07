@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+      body {
+      background-image: url(img_1704612189812.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* background-postion: center; */
+     text-align: center; 
+     font-family: 'Lucida Calligraphy', cursive, sans-serif;
+      }
+    #text-container {
+      font-size: 40px;
+      color: red;
+      margin-top: 120px; 
+      padding: 100px;
+      white-space: wrap;
+    }
+
+    #cursor {
+      display: inline-block;
+      vertical-align: text-bottom;
+      height: 24px;
+      background-color: #000;
+      animation: blink 0.5s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 0; }
+      50% { opacity: 1; }
+    }
+  </style>
+  <title>My heartfelt letter</title>
+</head>
+<body>
+  <div id="text-container" class="paragraph"></div><span id="cursor"></span>
+  
+  <script>
+      
+    document.addEventListener("DOMContentLoaded", function () {
+      const textContainer = document.getElementById("text-container");
+      const cursor = document.getElementById("cursor");
+      const text = "Ese baby So I have been meaning to ask you this for a while now🥺 I do really love you alot❤️So.......Mi amor🥹Will you😍be🥺my❤girlfriend 🥹baby❤";
+      let index = 0;
+  
+      function writeText() {
+        textContainer.textContent = text.slice(0, index);
+        index++;
+    
+        if (index <= text.length) {
+          setTimeout(writeText, 150); // Adjust the delay for your desired speed
+        } else {
+          cursor.style.display = "none";
+        }
+      }
+
+      writeText();
+    });
+  </script>
+</body>
+</html>
